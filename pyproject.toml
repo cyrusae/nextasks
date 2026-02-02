@@ -1,5 +1,5 @@
 [project]
-name = "nextcloud-tasks-bot"
+name = "nextasks"
 version = "0.1.0"
 description = "Discord bot for managing Nextcloud Tasks via CalDAV"
 readme = "README.md"
@@ -25,8 +25,16 @@ dev = [
 requires = ["hatchling"]
 build-backend = "hatchling.build"
 
-[tool.uv]
-dev-dependencies = []
+[tool.hatch.build.targets.wheel]
+packages = ["src"]
+
+[dependency-groups]
+dev = [
+    "pytest>=7.4.0",
+    "pytest-asyncio>=0.21.0",
+    "black>=23.7.0",
+    "ruff>=0.0.285",
+]
 
 [tool.black]
 line-length = 100
